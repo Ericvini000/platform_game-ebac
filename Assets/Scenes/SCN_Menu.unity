@@ -423,7 +423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7953305209352411103, guid: 18f7c5c63b78d35478e6014b720b9894, type: 3}
       propertyPath: m_Name
-      value: PFB_Exit
+      value: PFB_Sair
       objectReference: {fileID: 0}
     - target: {fileID: 8694640169424870028, guid: 18f7c5c63b78d35478e6014b720b9894, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3996,7 +3996,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2273674976362540552, guid: 18f7c5c63b78d35478e6014b720b9894, type: 3}
       propertyPath: m_text
-      value: "Cr\xE9ditos"
+      value: Sobre
       objectReference: {fileID: 0}
     - target: {fileID: 5195208846328642929, guid: 18f7c5c63b78d35478e6014b720b9894, type: 3}
       propertyPath: m_Pivot.x
@@ -4072,7 +4072,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7953305209352411103, guid: 18f7c5c63b78d35478e6014b720b9894, type: 3}
       propertyPath: m_Name
-      value: PFB_Credits
+      value: PFB_Sobre
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694640169424870028, guid: 18f7c5c63b78d35478e6014b720b9894, type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4170,7 +4174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7953305209352411103, guid: 18f7c5c63b78d35478e6014b720b9894, type: 3}
       propertyPath: m_Name
-      value: PFB_Play
+      value: PFB_Jogar
       objectReference: {fileID: 0}
     - target: {fileID: 8694640169424870028, guid: 18f7c5c63b78d35478e6014b720b9894, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
