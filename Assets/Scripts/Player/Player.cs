@@ -20,8 +20,16 @@ public class Player : MonoBehaviour
     public float jumpScaleX = .7f;
     public float animationDuration = .3f;
 
+    [Header("Animation Player")]
+    public string triggerBoolRun = "Run";
+    public Animator animator;
+    public float flipDuration = .1f;
+    public float speedRunningAnimation = 1.5f;
+    private bool _isRunning;
+
     private void Awake() {
         rigidBody = GetComponent<Rigidbody2D>();
+        _isRunning = false;
     }
     void Update()
     {
@@ -29,24 +37,43 @@ public class Player : MonoBehaviour
         HandleJump();
     }
 
+    private void isItRunning()
+    {
+        _isRunning = !_isRunning;
+        if(_isRunning)
+        {
+            animator.SetBool(triggerBoolRun, true);
+        }else {
+            animator.SetBool(triggerBoolRun, false);
+        }
+    }
+
     private void HandleMovement() 
     {
         if(Input.GetKey(KeyCode.LeftControl))
+        {
             _currentSpeed = speedRunning;
-        else 
+            animator.speed = speedRunningAnimation;
+        }
+        else {
             _currentSpeed = speed;
-
+            animator.speed = 1;
+        } 
 
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            // rigidBody.MovePosition(rigidBody.position + velocity * Time.deltaTime);
             rigidBody.velocity = new Vector2(_currentSpeed, rigidBody.velocity.y);
+            FlipPlayer("Right");
         }
+        if(Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.RightArrow)) isItRunning();
+
         if(Input.GetKey(KeyCode.LeftArrow))
         {
-            // rigidBody.MovePosition(rigidBody.position - velocity * Time.deltaTime);
             rigidBody.velocity = new Vector2(-_currentSpeed, rigidBody.velocity.y);
+            FlipPlayer("Left");
         }
+        if(Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.LeftArrow)) isItRunning();
+
 
         if(rigidBody.velocity.x > 0)
         {
@@ -55,6 +82,19 @@ public class Player : MonoBehaviour
         if(rigidBody.velocity.x < 0)
         {
             rigidBody.velocity -= friction;
+        }
+    }
+
+    private void FlipPlayer(string direction)
+    {
+        string _currentDirection = direction.ToLower();
+        if(_currentDirection == "right")
+        {
+            rigidBody.transform.DOScaleX(1, flipDuration);
+        }
+        if(_currentDirection == "left")
+        {
+            rigidBody.transform.DOScaleX(-1, flipDuration);
         }
     }
 
