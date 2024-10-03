@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class ProjectileBase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    // public Player playerReference;
+    public Vector2 direction;
+    public float timeToDestroy = 2f;
+    private void Awake() {
+        Destroy(gameObject, timeToDestroy);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Update() {
+        transform.Translate(direction * Time.deltaTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collsion) {
+        Destroy(gameObject);
     }
 }
