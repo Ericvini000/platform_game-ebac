@@ -21,7 +21,7 @@ public class HealthBase : MonoBehaviour
     }
 
 
-    public void Damage(int damage)
+    public void TakeDamage(int damage)
     {
         if (_isDead) return;
 

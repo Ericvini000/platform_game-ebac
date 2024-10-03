@@ -6,8 +6,12 @@ using UnityEngine;
 
 public class ItemManager : Singleton<ItemManager>
 {
+    [Header("Coins")]
     public int coins;
     public TextMeshProUGUI hudCoins;
+    
+    [Header("Weapons")]
+    public string weapon;
 
     private void Start() 
     {
