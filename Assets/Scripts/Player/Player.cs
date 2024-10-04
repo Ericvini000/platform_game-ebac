@@ -22,13 +22,23 @@ public class Player : MonoBehaviour
 
     [Header("Animation Player")]
     public string triggerBoolRun = "Run";
+    public string triggerDeath = "Death";
     public Animator animator;
     public float flipDuration = .1f;
     public float speedRunningAnimation = 1.5f;
     private bool _isRunning;
 
+    private HealthBase _healthReference;
+
     private void Awake() {
-        rigidBody = GetComponent<Rigidbody2D>();
+        if(rigidBody == null) rigidBody = GetComponent<Rigidbody2D>();
+
+        if(_healthReference == null)
+        {
+            _healthReference = GetComponent<HealthBase>();
+            _healthReference.OnKill += OnPlayerDeath;
+        }
+
         _isRunning = false;
     }
     void Update()
@@ -114,5 +124,11 @@ public class Player : MonoBehaviour
     {
         rigidBody.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2, LoopType.Yoyo);
         rigidBody.transform.DOScaleY(jumpScaleX, animationDuration).SetLoops(2, LoopType.Yoyo);
+    }
+
+    public void OnPlayerDeath()
+    {
+        _healthReference.OnKill -= OnPlayerDeath;
+        animator.SetTrigger(triggerDeath);
     }
 }

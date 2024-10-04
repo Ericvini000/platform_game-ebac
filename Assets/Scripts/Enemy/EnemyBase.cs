@@ -6,20 +6,41 @@ public class EnemyBase : MonoBehaviour
 {
 
     public int damage = 10;
+    public string triggerToAttack = "Attack";
+    public string triggerToDeath = "Death";
     public Animator animator;
+    private HealthBase _healthReference;
+
+    private void Awake() {
+        if(_healthReference == null) {
+            _healthReference = GetComponent<HealthBase>();
+            _healthReference.OnKill += OnEnemyKill;
+        };
+    }
     private void OnCollisionEnter2D(Collision2D collision) {
-        Debug.Log("Colision with "+ collision.transform.name);
 
-        var health = collision.gameObject.GetComponent<HealthBase>();
+        var playerHealth = collision.gameObject.GetComponent<HealthBase>();
 
-        if(health != null)
+        if(playerHealth != null)
         {
-            health.TakeDamage(damage);
+            playerHealth.TakeDamage(damage);
+            AttackAnimation();
         }
     }
 
-    public void Dead()
+    public void AttackAnimation()
     {
-        Debug.Log("Morrer");
+        animator.SetTrigger(triggerToAttack);
+    }
+
+    public void OnEnemyKill()
+    {
+        _healthReference.OnKill -= OnEnemyKill;
+        DeathAnimation();
+    }
+
+    public void DeathAnimation()
+    {
+        animator.SetTrigger(triggerToDeath);
     }
 }

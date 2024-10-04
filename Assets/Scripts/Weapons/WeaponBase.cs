@@ -7,8 +7,9 @@ public class WeaponBase : MonoBehaviour
     public ProjectileBase prefabProjectile;
     public Transform shootPlace;
     public float timeBetweenBullets;
-
     private Coroutine _currentCoroutine;
+
+    public Transform playerReference; 
 
     private void Update() {
         if(Input.GetKeyDown(KeyCode.S))
@@ -32,6 +33,7 @@ public class WeaponBase : MonoBehaviour
     public void Shoot()
     {
         var projectile = Instantiate(prefabProjectile);
+        projectile.side = playerReference.transform.localScale.x;
         projectile.transform.position = shootPlace.position; 
     }
 }
