@@ -7,11 +7,8 @@ using UnityEngine;
 public class ItemManager : Singleton<ItemManager>
 {
     [Header("Coins")]
-    public int coins;
+    public SOInt coins;
     public TextMeshProUGUI hudCoins;
-    
-    [Header("Weapons")]
-    public string weapon;
 
     private void Start() 
     {
@@ -20,18 +17,19 @@ public class ItemManager : Singleton<ItemManager>
 
     public void Reset() 
     {
-        coins = 0;
+        coins.SetValue(0);
     }
 
     public void AddCoins(int amount = 1)
     {
-        coins += amount;
+        int totalCoins = amount + coins.GetValue();
+        coins.SetValue(totalCoins);
         UpdateText();
     }
 
     public void UpdateText()
     {
-        hudCoins.text = "X"+coins.ToString();
+        hudCoins.text = "X"+coins.GetValue().ToString();
     }
 }
 
