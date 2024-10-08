@@ -2834,6 +2834,7 @@ GameObject:
   - component: {fileID: 1103557131}
   - component: {fileID: 1103557133}
   - component: {fileID: 1103557132}
+  - component: {fileID: 1103557134}
   m_Layer: 0
   m_Name: Amount
   m_TagString: Untagged
@@ -2957,6 +2958,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103557130}
   m_CullTransparentMesh: 1
+--- !u!114 &1103557134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103557130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a01c143d8f0ac7429a59d5158e2ec5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soInt: {fileID: 11400000, guid: 895e0fcca1a803e46a11e420f15209c3, type: 2}
+  uiTextCoins: {fileID: 1103557132}
 --- !u!212 &1127507176 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 9069580248349405312, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
@@ -2982,7 +2997,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1171004301
 Transform:
   m_ObjectHideFlags: 0
@@ -4900,7 +4915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1850424912
 Transform:
   m_ObjectHideFlags: 0
@@ -5943,9 +5958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7600d2602a4e9e2498dc265671fb1d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 0
+  coins: {fileID: 11400000, guid: 895e0fcca1a803e46a11e420f15209c3, type: 2}
   hudCoins: {fileID: 1103557132}
-  weapon: 
 --- !u!1001 &1507069373139422759
 PrefabInstance:
   m_ObjectHideFlags: 0
