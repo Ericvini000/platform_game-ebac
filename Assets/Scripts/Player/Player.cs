@@ -8,11 +8,11 @@ public class Player : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
     public SOPlayerSetup player;
-    public Animator animator;
     private HealthBase _healthReference;
 
     private float _currentSpeed;
     private bool _isRunning;
+    private Animator _currentPlayer;
 
 
     private void Awake() {
@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
             _healthReference.OnKill += OnPlayerDeath;
         }
 
+        _currentPlayer = Instantiate(player.playerArt, transform);
         _isRunning = false;
     }
     void Update()
@@ -37,9 +38,9 @@ public class Player : MonoBehaviour
         _isRunning = !_isRunning;
         if(_isRunning)
         {
-            animator.SetBool(player.triggerBoolRun, true);
+            _currentPlayer.SetBool(player.triggerBoolRun, true);
         }else {
-            animator.SetBool(player.triggerBoolRun, false);
+            _currentPlayer.SetBool(player.triggerBoolRun, false);
         }
     }
 
@@ -48,11 +49,11 @@ public class Player : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftControl))
         {
             _currentSpeed = player.speedRunning;
-            animator.speed = player.speedRunningAnimation;
+            _currentPlayer.speed = player.speedRunningAnimation;
         }
         else {
             _currentSpeed = player.speed;
-            animator.speed = 1;
+            _currentPlayer.speed = 1;
         } 
 
         if(Input.GetKey(KeyCode.RightArrow))
@@ -114,6 +115,6 @@ public class Player : MonoBehaviour
     public void OnPlayerDeath()
     {
         _healthReference.OnKill -= OnPlayerDeath;
-        animator.SetTrigger(player.triggerDeath);
+        _currentPlayer.SetTrigger(player.triggerDeath);
     }
 }

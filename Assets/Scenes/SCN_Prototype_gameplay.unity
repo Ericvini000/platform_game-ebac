@@ -2732,7 +2732,7 @@ Transform:
   m_GameObject: {fileID: 1046223718}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.554718, y: -1.6999998, z: -18.363873}
+  m_LocalPosition: {x: -2.5516052, y: -1.6999998, z: -18.363873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3334,7 +3334,7 @@ Transform:
   m_GameObject: {fileID: 1283195114}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -278.65472, y: -1.6999998, z: -18.363873}
+  m_LocalPosition: {x: -278.6516, y: -1.6999998, z: -18.363873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4925,8 +4925,8 @@ Transform:
   m_GameObject: {fileID: 1850424911}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -12.44, z: 0}
-  m_LocalScale: {x: 49.319324, y: 1, z: 1}
+  m_LocalPosition: {x: -6.6919, y: -14.7384, z: 0}
+  m_LocalScale: {x: 92.25035, y: 2.2993367, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 809198709}
@@ -5323,18 +5323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b7126dd82768a408e1a058f42f6485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friction: {x: -0.3, y: 0}
-  speed: 15
-  speedRunning: 20
-  jumpForce: 30
-  jumpScaleY: 1.02
-  jumpScaleX: 1.1
-  animationDuration: 0.25
-  triggerBoolRun: Run
-  triggerDeath: Death
+  player: {fileID: 0}
   animator: {fileID: 1212250502}
-  flipDuration: 0.01
-  speedRunningAnimation: 1.5
 --- !u!114 &1948113998
 MonoBehaviour:
   m_ObjectHideFlags: 0
